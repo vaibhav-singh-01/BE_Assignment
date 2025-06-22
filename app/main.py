@@ -9,10 +9,8 @@ app = FastAPI(
     openapi_url=f"{settings.API_V1_STR}/openapi.json"
 )
 
-# Add middleware
 app.middleware("http")(log_middleware)
 
-# Include routers
 app.include_router(api_router, prefix=settings.API_V1_STR)
 
 
